@@ -12,14 +12,24 @@
 </template>
 <script>
 import store from "@/store/store";
-import user_test from "@/data/user";
 
 
 export default {
   methods: {
     toLogin() {
-      store.state.user = user_test;
-      console.log(this.$route.params)
+      this.$ajax({
+        method:"post",
+        url:"http://localhost:8182/wms/user/login",
+        data: {
+          "account":this.account,
+          "password":this.pwd
+        }
+      }).then(req => {
+        store.state.user = req.data
+        console.info(req)
+      }).catch(err => {
+        console.info(err)
+      })
       //this.$router.push({ name: "homepage" });
     },
     toRegister() {
