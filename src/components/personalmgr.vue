@@ -25,7 +25,9 @@ export default {
     }
   },
   created(){
-    this.test = 'lol'
+    this.$ajxa({
+      method:'post'
+    });
   }
 };
 </script>
