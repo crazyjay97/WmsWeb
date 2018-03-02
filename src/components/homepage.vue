@@ -19,7 +19,7 @@ import cargomgr from "@/components/cargomgr";
 export default {
   data() {
     return {
-      selected: "cargo"
+      selected: "personal"
     };
   },
   components: {

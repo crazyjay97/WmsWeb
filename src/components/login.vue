@@ -12,6 +12,7 @@
 </template>
 <script>
 import store from "@/store/store";
+import { MessageBox } from "mint-ui";
 
 
 export default {
@@ -25,12 +26,12 @@ export default {
           "password":this.pwd
         }
       }).then(req => {
-        store.state.user = req.data
-        console.info(req)
+        store.state.user = req.data.user
+        store.state.user.token = req.data.token
+        this.$router.push({ name: "homepage" })
       }).catch(err => {
-        console.info(err)
+         MessageBox.alert("请检查用户名和密码后重新输入！", "提示")
       })
-      //this.$router.push({ name: "homepage" });
     },
     toRegister() {
       this.$router.push({ name: "register" });
