@@ -14,24 +14,25 @@
 import store from "@/store/store";
 import { MessageBox } from "mint-ui";
 
-
 export default {
   methods: {
     toLogin() {
       this.$ajax({
-        method:"post",
-        url:"/api/wms/user/login",
+        method: "post",
+        url: "/api/wms/user/login",
         data: {
-          "account":this.account,
-          "password":this.pwd
+          account: this.account,
+          password: this.pwd
         }
-      }).then(req => {
-        store.state.user = req.data.user
-        store.state.user.token = req.data.token
-        this.$router.push({ name: "homepage" })
-      }).catch(err => {
-         MessageBox.alert("请检查用户名和密码后重新输入！", "提示")
       })
+        .then(req => {
+          store.state.user = req.data.user;
+          store.state.user.token = req.data.token;
+          this.$router.push({ name: "homepage" });
+        })
+        .catch(err => {
+          MessageBox.alert("请检查用户名和密码后重新输入！", "提示");
+        });
     },
     toRegister() {
       this.$router.push({ name: "register" });
@@ -46,7 +47,7 @@ export default {
 };
 </script>
 <style>
-  #h_bannner{
-    height: 300px;
-  }
+#h_bannner {
+  height: 300px;
+}
 </style>

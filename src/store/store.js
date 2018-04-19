@@ -4,9 +4,15 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-    user:{}
-}   
-
+    user: {},
+    warehouse: {}
+}
+const mutations = {
+    setWareHouse(state, wh) {
+        state.warehouse = wh
+    }
+}
 export default new Vuex.Store({
-    state
+    state,
+    mutations
 })

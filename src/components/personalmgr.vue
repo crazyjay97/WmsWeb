@@ -15,30 +15,28 @@
 <script>
 import store from "@/store/store";
 
-
 export default {
-  methods:{
-    show_company(){
-      
-    }
+  methods: {
+    show_company() {}
   },
   data() {
     return {
-      store
-    }
+      store,
+      dept: 0
+    };
   },
-  created(){
-    this.$ajxa({
-      method:'post',
-      url:'http://localhost:8182/wms/department/queryByUserId',
-      data:{
-        userId:store.state.user.id
-      }.then(res => {
-        this.dept = res.data
-      }).catch(err => {
-        this.dept = null
+  created() {
+    this.$ajax({
+      method: "post",
+      url: "/api/wms/department/queryByUserId",
+      data:"id="+store.state.user.id
+    })
+      .then(res => {
+        this.dept = res.data;
       })
-    });
+      .catch(err => {
+        this.dept = null;
+      });
   }
 };
 </script>
