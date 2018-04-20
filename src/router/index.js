@@ -7,6 +7,7 @@ import cargomgr from '@/components/cargomgr'
 import personalmgr from '@/components/personalmgr'
 import warehousemgr from '@/components/warehousemgr'
 import companyop from '@/components/companyop'
+import details from '@/components/details'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/companyop',
       name: 'companyop',
       component: companyop
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component: details
     }
   ]
 })

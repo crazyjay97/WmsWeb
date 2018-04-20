@@ -32,6 +32,7 @@ export default {
       data:"id="+store.state.user.id
     })
       .then(res => {
+        this.store.state.user.deptId = res.data.id
         this.dept = res.data;
       })
       .catch(err => {

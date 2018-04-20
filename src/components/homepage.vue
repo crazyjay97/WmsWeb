@@ -1,7 +1,9 @@
 <template>
     <div>
         <div id="home_app"> 
+            <keep-alive>
             <component  v-bind:is="selected"></component>
+            </keep-alive>
         </div>
         <mt-navbar v-model="selected" v-bind:fixed=true style="top:auto;bottom:0;">
             <mt-tab-item id="cargo">货物管理</mt-tab-item>
@@ -17,9 +19,17 @@ import personalmgr from "@/components/personalmgr";
 import cargomgr from "@/components/cargomgr";
 
 export default {
+  created() {
+    this.selected = this.$store.state.page;
+  },
+  watch: {
+    selected(val, oldval) {
+      this.$store.state.page = val;
+    }
+  },
   data() {
     return {
-      selected: "personal"
+      selected: ""
     };
   },
   components: {

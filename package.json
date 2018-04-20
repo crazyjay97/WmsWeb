@@ -17,6 +17,7 @@
     "axios": "^0.18.0",
     "http-proxy-middleware": "^0.17.4",
     "mint-ui": "^2.2.13",
+    "muse-ui": "^2.1.0",
     "node-http-proxy": "^0.2.3",
     "npm": "^5.7.1",
     "vue": "^2.5.2",

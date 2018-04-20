@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const state = {
     user: {},
-    warehouse: {}
+    warehouse: {},
+    page:"personal"
 }
 const mutations = {
     setWareHouse(state, wh) {
