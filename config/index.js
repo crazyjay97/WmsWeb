@@ -43,11 +43,11 @@ module.exports = {
 
     cssSourceMap: true,
     proxyTable: {
-      '/api': {
+      '/': {
         target: 'http://127.0.0.1:8182',
         changeOrigin:true,
         pathRewrite: {
-          '^/api': '/'
+          '^/': '/'
         }
       }
     }

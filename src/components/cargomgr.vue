@@ -32,7 +32,6 @@ export default {
         data: "id=" + this.store.state.user.deptId
       })
         .then(res => {
-          console.log("-------------------");
           this.list = res.data;
         })
         .catch(err => {
