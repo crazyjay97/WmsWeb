@@ -49,7 +49,7 @@ export default {
     loadData() {
       this.$ajax({
         method: "post",
-        url: "/api/wms/wh/queryByDeptId",
+        url: "/wms/wh/queryByDeptId",
         data: "id=" + this.user.deptId
       })
         .then(res => {
@@ -62,7 +62,7 @@ export default {
     add() {
       this.$ajax({
         method: "post",
-        url: "/api/wms/wh/add",
+        url: "/wms/wh/add",
         data: {
           name: this.name,
           address: this.address,
@@ -80,7 +80,7 @@ export default {
     del(id) {
       this.$ajax({
         method: "post",
-        url: "/api/wms/wh/del",
+        url: "/wms/wh/del",
         data: "id=" + id
       })
         .then(res => {

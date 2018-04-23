@@ -19,7 +19,7 @@ export default {
     toLogin() {
       this.$ajax({
         method: "post",
-        url: "/api/wms/user/login",
+        url: "/wms/user/login",
         data: {
           account: this.account,
           password: this.pwd

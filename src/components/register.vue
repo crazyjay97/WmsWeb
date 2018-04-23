@@ -27,7 +27,7 @@ export default {
       } else {
          this.$ajax({
           method: "post",
-          url: "/api/wms/user/add",
+          url: "/wms/user/add",
           data: {
             name: this.name,
             account: this.account,

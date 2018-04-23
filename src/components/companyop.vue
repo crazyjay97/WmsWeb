@@ -10,7 +10,7 @@
         position="right">
         <mt-field label="员工账号" placeholder="请输入员工账号" v-model="account_add"></mt-field>
         <mt-button type="primary" size="large" @click.native="add">添加</mt-button>
-      </mt-popup>
+        </mt-popup>
     </div>
 </template>
 
@@ -36,7 +36,7 @@ export default {
     del(id) {
       this.$ajax({
         method: "post",
-        url: "/api/wms/user/delUserFromDept",
+        url: "/wms/user/delUserFromDept",
         data: "id=" + id
       })
         .then(res => {
@@ -49,7 +49,7 @@ export default {
     add() {
       this.ajax({
         method: "post",
-        url: "/api/wms/user/joinToDept",
+        url: "/wms/user/joinToDept",
         data: "account=" + account_add
       })
         .then(res => {
@@ -62,7 +62,7 @@ export default {
     loadData() {
       this.$ajax({
         method: "post",
-        url: "/api/wms/user/queryByDeptId",
+        url: "/wms/user/queryByDeptId",
         data: "deptId=" + this.$store.state.user.deptId
       })
         .then(res => {

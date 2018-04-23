@@ -54,7 +54,7 @@ export default {
     append() {
       this.$ajax({
         method: "post",
-        url: "/api/wms/cargo/updateRel",
+        url: "/wms/cargo/updateRel",
         data: {
           id: this.c_id,
           num: parseInt(this.c_num) + parseInt(this.count_append)
@@ -72,7 +72,7 @@ export default {
     cut() {
       this.$ajax({
         method: "post",
-        url: "/api/wms/cargo/updateRel",
+        url: "/wms/cargo/updateRel",
         data: {
           id: this.c_id,
           num: parseInt(this.c_num) - parseInt(this.count_cut)
@@ -90,7 +90,7 @@ export default {
     loadData() {
       this.$ajax({
         method: "post",
-        url: "/api/wms/cargo/queryByWhId",
+        url: "/wms/cargo/queryByWhId",
         data: "id=" + this.$store.state.warehouse.id
       })
         .then(res => {
@@ -109,7 +109,7 @@ export default {
     addCargo() {
       this.$ajax({
         method: "post",
-        url: "/api/wms/cargo/joinToWh",
+        url: "/wms/cargo/joinToWh",
         data: {
           wdId: this.$store.state.warehouse.id,
           cargoId: this.pick,
@@ -146,7 +146,7 @@ export default {
     this.loadData();
     this.$ajax({
       method: "post",
-      url: "/api/wms/cargo/queryByDeptId",
+      url: "/wms/cargo/queryByDeptId",
       data: "id=" + this.$store.state.user.deptId
     })
       .then(res => {
