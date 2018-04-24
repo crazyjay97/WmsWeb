@@ -34,7 +34,6 @@ export default {
   },
   created() {
     this.user = this.$store.state.user;
-    console.log(this.$store.state.user);
     this.loadData();
   },
   methods: {
@@ -43,13 +42,12 @@ export default {
     },
     detailsBox(id) {
       this.$store.state.warehouse.id = id;
-      console.log(this.$store.state);
       this.$router.push({ name: "details" });
     },
     loadData() {
       this.$ajax({
         method: "post",
-        url: "/wms/wh/queryByDeptId",
+        url: "/api/wms/wh/queryByDeptId",
         data: "id=" + this.user.deptId
       })
         .then(res => {
@@ -62,7 +60,7 @@ export default {
     add() {
       this.$ajax({
         method: "post",
-        url: "/wms/wh/add",
+        url: "/api/wms/wh/add",
         data: {
           name: this.name,
           address: this.address,
@@ -80,7 +78,7 @@ export default {
     del(id) {
       this.$ajax({
         method: "post",
-        url: "/wms/wh/del",
+        url: "/api/wms/wh/del",
         data: "id=" + id
       })
         .then(res => {

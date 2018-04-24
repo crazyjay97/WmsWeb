@@ -36,7 +36,7 @@ export default {
     del(id) {
       this.$ajax({
         method: "post",
-        url: "/wms/user/delUserFromDept",
+        url: "/api/wms/user/delUserFromDept",
         data: "id=" + id
       })
         .then(res => {
@@ -49,7 +49,7 @@ export default {
     add() {
       this.ajax({
         method: "post",
-        url: "/wms/user/joinToDept",
+        url: "/api/wms/user/joinToDept",
         data: "account=" + account_add
       })
         .then(res => {
@@ -62,7 +62,7 @@ export default {
     loadData() {
       this.$ajax({
         method: "post",
-        url: "/wms/user/queryByDeptId",
+        url: "/api/wms/user/queryByDeptId",
         data: "deptId=" + this.$store.state.user.deptId
       })
         .then(res => {

@@ -33,7 +33,7 @@ export default {
     add() {
       this.$ajax({
         method: "post",
-        url: "/wms/department/add",
+        url: "/api/wms/department/add",
         data: {
           name: this.name_add,
           createBy: this.store.state.user.id
@@ -58,7 +58,7 @@ export default {
   created() {
     this.$ajax({
       method: "post",
-      url: "/wms/department/queryByUserId",
+      url: "/api/wms/department/queryByUserId",
       data: "id=" + store.state.user.id
     })
       .then(res => {

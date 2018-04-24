@@ -28,7 +28,7 @@ export default {
     loadData() {
       this.$ajax({
         method: "post",
-        url: "/wms/cargo/queryByDeptId",
+        url: "/api/wms/cargo/queryByDeptId",
         data: "id=" + this.store.state.user.deptId
       })
         .then(res => {
@@ -44,7 +44,7 @@ export default {
     del(id) {
       this.$ajax({
         method: "post",
-        url: "/wms/cargo/del",
+        url: "/api/wms/cargo/del",
         data: "id=" + id
       })
         .then(res => {
@@ -57,14 +57,13 @@ export default {
     add() {
       this.$ajax({
         method: "post",
-        url: "/wms/cargo/add",
+        url: "/api/wms/cargo/add",
         data: {
           name: this.name,
           deptId: this.store.state.user.deptId
         }
       })
         .then(res => {
-          console.log(res);
           this.addVisible = false;
           this.loadData();
         })

@@ -3,7 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-const tomcat_webapps_home = 'D:/tomcat/apache-tomcat-7.0.70/webapps'
+const tomcat_webapps_home = 'F:/'
 
 module.exports = {
   dev: {
@@ -43,11 +43,11 @@ module.exports = {
 
     cssSourceMap: true,
     proxyTable: {
-      '/': {
+      '/api': {
         target: 'http://127.0.0.1:8182',
         changeOrigin:true,
         pathRewrite: {
-          '^/': '/'
+          '^/api': '/'
         }
       }
     }
