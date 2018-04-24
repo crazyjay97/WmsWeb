@@ -36,6 +36,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          MessageBox.alert("网络错误!", "提示");
         });
     },
     addBox() {
@@ -52,6 +53,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          MessageBox.alert("网络错误!", "提示");
         });
     },
     add() {
@@ -69,6 +71,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          MessageBox.alert("网络错误!", "提示");
         });
     }
   },

@@ -43,7 +43,8 @@ export default {
           this.addVisible = false;
         })
         .catch(err => {
-          this.addVisible = true;
+          MessageBox.alert("网络错误!", "提示");
+          this.addVisible = false;
         });
     }
   },
@@ -68,6 +69,7 @@ export default {
       })
       .catch(err => {
         this.dept = 0;
+        MessageBox.alert("网络错误!", "提示");
       });
   }
 };

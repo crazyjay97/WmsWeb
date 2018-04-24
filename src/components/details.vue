@@ -67,6 +67,8 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          this.appendVisible = false;
+          MessageBox.alert("网络错误!", "提示");
         });
     },
     cut() {
@@ -84,7 +86,9 @@ export default {
           this.count_cut = "";
         })
         .catch(err => {
+          this.cutVisible = false;
           console.log(err);
+          MessageBox.alert("网络错误!", "提示");
         });
     },
     loadData() {
@@ -98,6 +102,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          MessageBox.alert("网络错误!", "提示");
         });
     },
     backToHome() {
@@ -154,6 +159,7 @@ export default {
       })
       .catch(err => {
         console.log(err);
+        MessageBox.alert("网络错误!", "提示");
       });
   }
 };
