@@ -24,6 +24,22 @@ import store from "@/store/store";
 
 export default {
   methods: {
+    loadData() {
+      this.$ajax({
+        method: "post",
+        url: "/api/wms/department/queryByUserId",
+        data: "id=" + store.state.user.id
+      })
+        .then(res => {
+          this.store.state.user.deptId = res.data.id;
+          this.dept = res.data;
+          //this.$store.state.user.isAdmin = res.data.isAdmin;
+        })
+        .catch(err => {
+          this.dept = 0;
+          MessageBox.alert("网络错误!", "提示");
+        });
+    },
     addBox() {
       this.addVisible = true;
     },
@@ -41,6 +57,7 @@ export default {
       })
         .then(res => {
           this.addVisible = false;
+          this.loadData();
         })
         .catch(err => {
           MessageBox.alert("网络错误!", "提示");
@@ -57,20 +74,7 @@ export default {
     };
   },
   created() {
-    this.$ajax({
-      method: "post",
-      url: "/api/wms/department/queryByUserId",
-      data: "id=" + store.state.user.id
-    })
-      .then(res => {
-        this.store.state.user.deptId = res.data.id;
-        this.dept = res.data;
-        //this.$store.state.user.isAdmin = res.data.isAdmin;
-      })
-      .catch(err => {
-        this.dept = 0;
-        MessageBox.alert("网络错误!", "提示");
-      });
+    this.loadData();
   }
 };
 </script>
