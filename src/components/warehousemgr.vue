@@ -45,6 +45,9 @@ export default {
       this.$router.push({ name: "details" });
     },
     loadData() {
+      if (undefined == this.user.deptId) {
+        return;
+      }
       this.$ajax({
         method: "post",
         url: "/api/wms/wh/queryByDeptId",
